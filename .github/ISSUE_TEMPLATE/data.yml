@@ -1,0 +1,105 @@
+name: 数据问题
+description: 机场、航路、程序、频率、地面图或其他网络数据错误。
+title: "[数据] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        数据问题请尽量给出**当前错误值**和**正确值**，并附上可核对的来源与版本。
+        不确定来源时请说明，维护者会协助核实。
+
+  - type: dropdown
+    id: data_type
+    attributes:
+      label: 数据类型
+      options:
+        - 机场
+        - 航路
+        - 飞行程序（SID/STAR/APP）
+        - 频率或呼号
+        - 地面图或航图
+        - 扇区或管制范围
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: identifier
+    attributes:
+      label: 受影响的标识
+      description: 请填写 ICAO 代码、航路名、程序名、席位或扇区名称，便于定位数据。
+      placeholder: 例如：ZBAA、A461、ZBAA_TWR、ZBPE_CTR
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: 当前错误内容
+      description: 现在系统里显示或使用的是错误值是什么？出现在哪个页面？
+      placeholder: 例如：Radar 中 ZBAA_TWR 显示为 118.100，实际应为 118.500。
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct
+    attributes:
+      label: 正确内容
+      description: 正确的值或数据应该是什么。
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: 数据来源
+      description: 请提供 AIP、CAAC 公告、官方航图或数据库名称，并注明版本或生效日期。
+      placeholder: 例如：中国 AIP 2026-10 期，ZBAA AD 2.18；或 AIRAC 2610。
+    validations:
+      required: false
+
+  - type: input
+    id: airac
+    attributes:
+      label: AIRAC 周期或数据版本
+      description: 问题对应的 AIRAC 周期，或页面上显示的数据版本。
+      placeholder: 例如：AIRAC 2610
+    validations:
+      required: false
+
+  - type: input
+    id: url
+    attributes:
+      label: 相关页面链接
+      placeholder: 例如：https://radar.ceruleanavi.net
+    validations:
+      required: false
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 截图或参考资料
+      description: 可直接把图片拖拽到输入框，或粘贴航图、公告片段和链接。
+      placeholder: 将图片拖拽到此处；参考资料请粘贴在下方。
+      render: text
+    validations:
+      required: false
+
+  - type: input
+    id: can_id
+    attributes:
+      label: CAN ID
+      description: 用于发放积分，请勿填写密码、令牌或其他敏感信息。
+      placeholder: 例如：5158
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我已搜索过已有 issue，确认这不是重复报告。
+          required: true
+        - label: 我理解数据修改需要可核对的来源，维护者可能会要求补充。
+          required: true

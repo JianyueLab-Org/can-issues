@@ -1,0 +1,78 @@
+name: 文档问题
+description: 说明不准确、链接失效、步骤缺失或中英文内容不一致。
+title: "[文档] "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请尽量提供文档所在页面或仓库路径，以及出现问题的原文位置。
+
+  - type: input
+    id: location
+    attributes:
+      label: 文档位置
+      description: 文档的网址、页面标题或仓库内路径。
+      placeholder: 例如：https://ceruleanavi.net/docs/xxx 或 README.md 第 30 行
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: 问题类型
+      options:
+        - 内容不准确
+        - 链接失效或 404
+        - 步骤缺失或无法完成
+        - 中英文内容不一致
+        - 内容过时
+        - 排版、错别字或图片错误
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 请引用有问题的原文，并说明为什么它是不正确的。
+      placeholder: 当前写的是「……」，但实际应为「……」，依据是……
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建议修改
+      description: 可以直接给出建议的替换文字、补充步骤或正确链接。
+    validations:
+      required: false
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 截图或参考
+      description: 可直接把图片拖拽到输入框。
+      placeholder: 将图片拖拽到此处。
+      render: text
+    validations:
+      required: false
+
+  - type: input
+    id: can_id
+    attributes:
+      label: CAN ID
+      description: 用于发放积分，请勿填写密码、令牌或其他敏感信息。
+      placeholder: 例如：5158
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我已搜索过已有 issue，确认这不是重复报告。
+          required: true

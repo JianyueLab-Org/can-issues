@@ -1,0 +1,125 @@
+name: Bug 报告
+description: 功能报错、页面无法使用、数据展示错误、客户端异常等。
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提交前请先搜索已有 issue，重复报告不重复计分。
+        安全漏洞、密钥泄露和可能造成数据损失的问题请勿公开提交，请发送至 feedback@ceruleanavi.net。
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 实际发生了什么，影响了哪个功能或哪些用户。
+      placeholder: 例如：在 Radar 中打开 XX 扇区后，地图上的边界不显示。
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 请按顺序写出每一步操作，确保其他人可以照着复现。
+      placeholder: |
+        1. 打开 https://...
+        2. 使用 XX 账号登录
+        3. 进入 XX 页面
+        4. 点击 XX
+        5. 观察到 XX
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+      description: 本来应该发生什么。
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果
+      description: 现在实际发生了什么。稳定复现还是偶发？发生频率如何？
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: 页面或客户端
+      description: 出现问题的网址、客户端名称或模块。
+      placeholder: 例如：https://radar.ceruleanavi.net、audio-for-can、MSFS 客户端、can-efb
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: 版本
+      description: 客户端版本号；网页问题可填写浏览器版本。可在客户端关于页或下载文件名中查看。
+      placeholder: 例如：audio-for-can v2.2.28
+    validations:
+      required: false
+
+  - type: input
+    id: os_browser
+    attributes:
+      label: 操作系统与浏览器
+      placeholder: 例如：Windows 11 24H2 / Chrome 141；或 MSFS 2020
+    validations:
+      required: true
+
+  - type: input
+    id: when
+    attributes:
+      label: 发生时间
+      description: 请注明时区，便于对照服务端日志。
+      placeholder: 例如：2026-10-18 21:30 (UTC+8)
+    validations:
+      required: true
+
+  - type: input
+    id: context
+    attributes:
+      label: 相关航班、机场、席位或航路
+      description: 与问题相关的呼号、起降机场、管制席位、航路或扇区。
+      placeholder: 例如：CCA123 ZBAA-ZSPD、ZBAA_TWR、A461
+    validations:
+      required: false
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 截图、日志或录屏
+      description: 可直接把图片拖拽到输入框，或粘贴日志、报错信息和最小复现数据。请先移除密码、令牌等敏感信息。
+      placeholder: 将图片拖拽到此处；日志请粘贴在下方。
+      render: text
+    validations:
+      required: false
+
+  - type: input
+    id: can_id
+    attributes:
+      label: CAN ID
+      description: 用于发放积分，请勿填写密码、令牌或其他敏感信息。也可在维护者确认有效后于评论中补充。
+      placeholder: 例如：5158
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我已搜索过已有 issue，确认这不是重复报告。
+          required: true
+        - label: 我提供的信息足够让他人复现，且不包含密码、令牌等敏感信息。
+          required: true
+        - label: 我理解积分按 README 规则由维护者核实后发放。
+          required: false
