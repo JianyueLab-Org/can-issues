@@ -1,0 +1,15 @@
+blank_issues_enabled: true
+
+# 联系方式入口：暂不提供，由上游维护者按需补充后取消注释。
+# 每条 contact_link 需要 name、url、about 三个字段；url 必须是有效的 http(s) 链接或 mailto: 地址。
+#
+# contact_links:
+#   - name: 安全漏洞、密钥泄露或可能造成数据损失的问题
+#     url: mailto:feedback@ceruleanavi.net
+#     about: 请勿公开创建 issue，请使用注册邮箱发送邮件说明。
+#   - name: 账号、积分余额、兑换与个人信息
+#     url: https://ceruleanavi.net/
+#     about: 这类事项涉及个人信息，请通过平台内的反馈渠道提交，不要在本仓库公开。
+#   - name: 提交前先搜索已有 issue
+#     url: https://github.com/JianyueLab-Org/can-issues/issues?q=is%3Aissue
+#     about: 重复 issue 不重复计分，积分归最早的有效报告。
